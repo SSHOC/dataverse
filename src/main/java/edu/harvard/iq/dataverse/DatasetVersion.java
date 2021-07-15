@@ -171,7 +171,18 @@ public class DatasetVersion implements Serializable {
     @OneToMany(mappedBy = "datasetVersion", cascade={CascadeType.REMOVE, CascadeType.MERGE, CascadeType.PERSIST})
     private List<WorkflowComment> workflowComments;
 
-    
+    public List<ConceptsCache> getConceptsCaches() {
+        return conceptsCaches;
+    }
+
+    public void setConceptsCaches(List<ConceptsCache> conceptsCaches) {
+        this.conceptsCaches = conceptsCaches;
+    }
+
+    @OneToMany(mappedBy = "datasetVersion", cascade = {CascadeType.REMOVE, CascadeType.MERGE, CascadeType.PERSIST})
+    private List<ConceptsCache> conceptsCaches;
+
+
     public Long getId() {
         return this.id;
     }
